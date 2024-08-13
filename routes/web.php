@@ -19,8 +19,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/success', function () {
-    return view('success');
+Route::get('/success', function (Request $req) {
+    dd($req->all());
 });
 
 Route::get('/success2', function () {

@@ -11,5 +11,6 @@ class Patient extends Model
         "fingerprint",
         "selfieImageUrl",
         "idImageUrl",
+        "code"
     ];
 }

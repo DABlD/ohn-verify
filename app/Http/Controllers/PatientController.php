@@ -13,6 +13,7 @@ class PatientController extends Controller
         
         $temp = json_decode($req->getcontent());
 
+        $patient->code = $temp->data->code;
         $patient->data = json_encode($temp->data->fieldsExtracted);
         $patient->selfieImageUrl = json_encode($temp->data->selfieImageUrl);
         $patient->idImageUrl = json_encode($temp->data->idImageUrl);

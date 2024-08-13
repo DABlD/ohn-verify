@@ -19,6 +19,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/biometrics', function () {
+    return view('biometrics');
+});
+
 Route::get("webhook", "PatientController@webhook")->name('webhook');
 
 // Route::get('/', function(){

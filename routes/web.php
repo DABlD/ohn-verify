@@ -15,28 +15,30 @@ use Illuminate\Support\Facades\Route;
 
 //JUST ADD '->defaults("group", "Settings")' IF YOU WANT TO GROUP A NAV IN A DROPDOWN
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-Route::get('/', function(){
-   return redirect()->route('login');
+Route::get('/', function () {
+    return view('welcome');
 });
+
+Route::get("webhook", "PatientController@webhook")->name('webhook');
+
+// Route::get('/', function(){
+//    return redirect()->route('login');
+// });
 
 
 Route::group([
         'middleware' => 'auth',
     ], function() {
-        Route::get('/', "DashboardController@index")->name('dashboard');
+        // Route::get('/', "DashboardController@index")->name('dashboard');
 
 
-        Route::get('/', 'DashboardController@index')
-            ->defaults('sidebar', 1)
-            ->defaults('icon', 'fas fa-list')
-            ->defaults('name', 'Dashboard')
-            ->defaults('roles', array('Admin'))
-            ->name('dashboard')
-            ->defaults('href', '/');
+        // Route::get('/', 'DashboardController@index')
+        //     ->defaults('sidebar', 1)
+        //     ->defaults('icon', 'fas fa-list')
+        //     ->defaults('name', 'Dashboard')
+        //     ->defaults('roles', array('Admin'))
+        //     ->name('dashboard')
+        //     ->defaults('href', '/');
 
         // USER ROUTES
         $cname = "user";

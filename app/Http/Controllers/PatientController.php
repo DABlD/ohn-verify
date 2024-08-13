@@ -15,11 +15,11 @@ class PatientController extends Controller
         $patient->dateOfExpiry = $req->dateOfExpiry;
         $patient->fullName = $req->fullName;
         $patient->dateOfBirth = $req->dateOfBirth;
-        $patient->address = $req->address;
-        $patient->placeOfIssue = $req->placeOfIssue;
-        $patient->yearOfBirth = $req->yearOfBirth;
-        $patient->nationality = $req->nationality;
-        $patient->data = json_encode($req['result']);
+        $patient->address = $req->result;
+        $patient->placeOfIssue = json_encode($req->result);
+        $patient->yearOfBirth = $req['status'];
+        $patient->nationality = $req->status;
+        $patient->data = json_encode($req['status']);
 
         if($patient->save()){
             return response()->json([

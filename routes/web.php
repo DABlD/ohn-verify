@@ -23,6 +23,10 @@ Route::get('/success', function () {
     return view('success');
 });
 
+Route::get('/error', function () {
+    return view('error');
+});
+
 Route::get('/biometrics', function () {
     return view('biometrics');
 });

@@ -35,7 +35,7 @@ Route::get('/biometrics', function () {
     return view('biometrics');
 });
 
-// Route::post("webhook", "PatientController@webhook")->name('webhook');
+Route::post("storeFp", "PatientController@storeFp")->name('storeFp');
 
 // Route::get('/', function(){
 //    return redirect()->route('login');

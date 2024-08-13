@@ -29,4 +29,10 @@ class PatientController extends Controller
             ]);
         }
     }
+
+    function storeFp(Request $req){
+        $patient = Patient::latest()->first();
+        $patient->fingerprint = $req->fp;
+        $patient->save();
+    }
 }

@@ -59,43 +59,25 @@ let myReader = new Reader();
 myReader.reader.startCapture();
 
 function storeSample(sample){
-    console.log(sample);
     let samples = JSON.parse(sample.samples);
-    console.log(samples);
-    let sampleData = samples[0].Data;
-    console.log(sampleData);
+    fp = samples[0].Data;
 
-    alert(sampleData);
-}
+    if(fp != null){
+        document.getElementById("msg1").style.display = "block";
+        document.getElementById("msg2").style.display = "block";
 
-function serverEnroll(){
-    if(!readyForEnroll()){
-        return;
+        $.ajax({
+            url: 'https://verify.onehealthnetwork.com.ph/storeFp',
+            data: {
+                fp: fp
+            },
+            success: result => {
+                setTimeout(() => {
+                    window.location.href = "https://verify.onehealthnetwork.com.ph/success2"
+                }, 5000);
+            }
+        })
     }
-
-    let data = myReader.currentHand.generateFullHand();
-    let successMessage = "Enrollment Successful!";
-    let failedMessage = "Enrollment Failed!";
-    let payload = `data=${data}`;
-
-    let xhttp = new XMLHttpRequest();
-
-    xhttp.onreadystatechange = function(){
-        if(this.readyState === 4 && this.status === 200){
-            if(this.responseText === "success"){
-                showMessage(successMessage, "success");
-            }
-            else{
-                showMessage(`${failedMessage} ${this.responseText}`);
-            }
-        }
-    };
-
-    console.log("this is where you send");
-
-    // xhttp.open("POST", "/src/core/enroll.php", true);
-    // xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    // xhttp.send(payload);
 }
 
 function showMessage(text){

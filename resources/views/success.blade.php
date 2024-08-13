@@ -1,21 +1,9 @@
-<div class="container">
+<html>
+  <head>
+    <title>Biometrics</title>
 
-  <div class="thank-you">
-    
-    <img src="{{ asset("images/shdmc.png") }}" width="500" height="300" alt="IMG">
-    
-    <h1>Thank you!</h1>
-    
-    <p>You have successfully been verified</p>
-
-    <p>You will be automatically redirected in 5 seconds</p>
-    
-  </div>
-  
-</div>
-
-<style>
-  body {
+    <style>
+      body {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,4 +28,33 @@
       max-width: 150px;
     }
   }
-</style>
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+
+      <div class="thank-you">
+        
+        <img src="{{ asset("images/fp.jpg") }}" width="500" height="300" alt="IMG">
+        
+        <h1>Please Scan Your Fingerprint</h1>
+        
+        <p id="msg1" style="display: none;">Success</p>
+
+        <p id="msg2" style="display: none;">You will be automatically redirected in 5 seconds</p>
+        
+      </div>
+      
+    </div>
+
+    <script>
+      var fp = null;
+    </script>
+
+    <script src="js/es6-shim.js"></script>
+    <script src="js/websdk.client.bundle.min.js"></script>
+    <script src="js/fingerprint.sdk.min.js"></script>
+    <script src="js/custom2.js"></script>
+  </body>
+</html>

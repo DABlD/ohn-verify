@@ -35,7 +35,7 @@ Route::get('/biometrics', function () {
     return view('biometrics');
 });
 
-Route::post("storeFp", "PatientController@storeFp")->name('storeFp');
+Route::get("storeFp", "PatientController@storeFp")->name('storeFp');
 Route::get("checkNeedFP", "PatientController@checkNeedFP")->name('checkNeedFP');
 
 // Route::get('/', function(){

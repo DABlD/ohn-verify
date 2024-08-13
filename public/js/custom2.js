@@ -56,10 +56,7 @@ class Reader{
 }
 
 let myReader = new Reader();
-
-function beginCapture(){
-    myReader.reader.startCapture();
-}
+myReader.reader.startCapture();
 
 function storeSample(sample){
     console.log(sample);
@@ -67,6 +64,8 @@ function storeSample(sample){
     console.log(samples);
     let sampleData = samples[0].Data;
     console.log(sampleData);
+
+    alert(sampleData);
 }
 
 function serverEnroll(){

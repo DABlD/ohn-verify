@@ -139,46 +139,49 @@
 					success: result => {
 						result = JSON.parse(result);
 						
-						code = result.code;
-						let data = JSON.parse(result.data);
-						let img1 = JSON.parse(result.idImageUrl);
-						let img2 = JSON.parse(result.selfieImageUrl);
+						if(result){
+							code = result.code;
+							
+							let data = JSON.parse(result.data);
+							let img1 = JSON.parse(result.idImageUrl);
+							let img2 = JSON.parse(result.selfieImageUrl);
 
-						let string = "";
+							let string = "";
 
-						Object.keys(data).forEach((i, j, value) =>{
-							string += `
-								<div class="row">
-								  <label class="asd" for="${i}">${i}</label>
-								  <input class="zxc" type="text" name="${i}" value=" ${data[i] ?? "-"}" required>
-								</div>
-							`;
-						});
+							Object.keys(data).forEach((i, j, value) =>{
+								string += `
+									<div class="row">
+									  <label class="asd" for="${i}">${i}</label>
+									  <input class="zxc" type="text" name="${i}" value=" ${data[i] ?? "-"}" required>
+									</div>
+								`;
+							});
 
-						Swal.fire({
-							title: "Details",
-							html: `
-								<img src="${img2}" alt="Selfie" width="50%">
-								<img src="${img1}" alt="ID" width="50%">
-								<div id="verifying">
-									${string}
-								</div>
-							`,
-							confirmButtonText: "Take Fingerprint",
-						}).then(result => {
-							if(result.value){
-								Swal.fire({
-									title: "Put finger in Biometrics",
-									html: `
-										<img src="{{ asset("images/fp.jpg") }}" width="20%" alt="IMG">
-									`,
-									didOpen: () => {
-										Swal.showLoading();
-										myReader.reader.startCapture();
-									}
-								});
-							}
-						});
+							Swal.fire({
+								title: "Details",
+								html: `
+									<img src="${img2}" alt="Selfie" width="50%">
+									<img src="${img1}" alt="ID" width="50%">
+									<div id="verifying">
+										${string}
+									</div>
+								`,
+								confirmButtonText: "Take Fingerprint",
+							}).then(result => {
+								if(result.value){
+									Swal.fire({
+										title: "Put finger in Biometrics",
+										html: `
+											<img src="{{ asset("images/fp.jpg") }}" width="20%" alt="IMG">
+										`,
+										didOpen: () => {
+											Swal.showLoading();
+											myReader.reader.startCapture();
+										}
+									});
+								}
+							});
+						}
 					},
 				});
 

@@ -15,16 +15,8 @@ class CreatePatientsTable extends Migration
     {
         Schema::create('patients', function (Blueprint $table) {
             $table->id();
-
-            $table->string('idNumber')->nullable();
-            $table->date('dateOfExpiry')->nullable();
-            $table->string('fullName')->nullable();
-            $table->date('dateOfBirth')->nullable();
-            $table->string('address')->nullable();
-            $table->string('placeOfIssue')->nullable();
-            $table->string('yearOfBirth')->nullable();
-            $table->string('nationality')->nullable();
-
+            
+            $table->text('fingerprint')->nullable();
             $table->text('data')->nullable();
 
             $table->timestamps();

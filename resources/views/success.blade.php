@@ -41,9 +41,3 @@
     }
   }
 </style>
-
-<script>
-  setTimeout(() => {
-    window.location.href = "https://verify.onehealthnetwork.com.ph/";
-  }, 5000);
-</script>

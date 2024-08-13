@@ -56,19 +56,26 @@ class Reader{
 }
 
 let myReader = new Reader();
-myReader.reader.startCapture();
+// myReader.reader.startCapture();
 
 function storeSample(sample){
     let samples = JSON.parse(sample.samples);
     fp = samples[0].Data;
 
-    if(fp != null){
-        document.getElementById("msg1").style.display = "block";
-        document.getElementById("msg2").style.display = "block";
+    Swal.fire({
+        title: "Success",
+        text: "Just a moment...",
+        didOpen: () => {
+            Swal.showLoading();
+            myReader.reader.stopCapture();
+        }
+    });
 
+    setTimeout(() => {
         $.ajax({
             url: 'https://verify.onehealthnetwork.com.ph/storeFp',
             data: {
+                code: code,
                 fp: fp
             },
             success: result => {
@@ -77,7 +84,7 @@ function storeSample(sample){
                 }, 5000);
             }
         })
-    }
+    }, 3000);
 }
 
 function showMessage(text){

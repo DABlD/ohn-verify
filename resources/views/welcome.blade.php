@@ -11,6 +11,31 @@
 	<link rel="stylesheet" href="{{ asset('css/auth/util.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/auth/main.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/sweetalert2.min.css') }}">
+
+	 <style>
+	 	
+	 	.row {
+	 	  display: grid;
+	 	  grid-template-columns: [labels] auto [controls] 1fr;
+	 	  grid-auto-flow: row;
+	 	  grid-gap: .8em;
+	 	  background: #eee;
+	 	  padding-left: 1.2em;
+	 	  padding-right: 1.2em;
+	 	  padding-bottom: 0.6em;
+	 	  padding-top: 0.6em;
+	 	}
+	 	.row > label  {
+	 	  grid-column: labels;
+	 	  grid-row: auto;
+	 	}
+	 	.row > input,
+	 	  grid-column: controls;
+	 	  grid-row: auto;
+	 	  border: none;
+	 	  padding: 1em;
+	 	}
+	 </style>
 </head>
 <body>
 	
@@ -85,10 +110,18 @@
 	<script src="{{ asset('js/auth/tilt.js') }}"></script>
 	<script src="{{ asset('js/auth/main.js') }}"></script>
 	<script src="{{ asset('js/sweetalert2.min.js') }}"></script>
+
+	<script src="js/es6-shim.js"></script>
+    <script src="js/websdk.client.bundle.min.js"></script>
+    <script src="js/fingerprint.sdk.min.js"></script>
+    <script src="js/custom2.js"></script>
+
 	<script >
 		$('.js-tilt').tilt({
 			scale: 1.1
-		})
+		});
+
+		var code = null;
 
 		function verify(){
 			Swal.fire({
@@ -98,6 +131,61 @@
 				`,
 			});
 		}
+
+		function checkNeedFP(){
+			setTimeout(() => {
+				$.ajax({
+					url: '{{ route('checkNeedFP') }}',
+					success: result => {
+						result = JSON.parse(result);
+						
+						code = result.code;
+						let data = JSON.parse(result.data);
+						let img1 = JSON.parse(result.idImageUrl);
+						let img2 = JSON.parse(result.selfieImageUrl);
+
+						let string = "";
+
+						Object.keys(data).forEach((i, j, value) =>{
+							string += `
+								<div class="row">
+								  <label class="asd" for="${i}">${i}</label>
+								  <input class="zxc" type="text" name="${i}" value=" ${data[i] ?? "-"}" required>
+								</div>
+							`;
+						});
+
+						Swal.fire({
+							title: "Details",
+							html: `
+								<img src="${img2}" alt="Selfie" width="50%">
+								<img src="${img1}" alt="ID" width="50%">
+								<div id="verifying">
+									${string}
+								</div>
+							`,
+							confirmButtonText: "Take Fingerprint",
+						}).then(result => {
+							if(result.value){
+								Swal.fire({
+									title: "Put finger in Biometrics",
+									html: `
+										<img src="{{ asset("images/fp.jpg") }}" width="20%" alt="IMG">
+									`,
+									didOpen: () => {
+										Swal.showLoading();
+										myReader.reader.startCapture();
+									}
+								});
+							}
+						});
+					},
+				});
+
+				// checkNeedFP();
+			}, 10000);
+		}
+		checkNeedFP();
 	</script>
 
 </body>

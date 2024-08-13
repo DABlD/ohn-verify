@@ -31,8 +31,14 @@ class PatientController extends Controller
     }
 
     function storeFp(Request $req){
-        $patient = Patient::latest()->first();
+        $patient = Patient::where('code', $req->code)->first();
         $patient->fingerprint = $req->fp;
         $patient->save();
+    }
+
+    function checkNeedFP(Request $req){
+        $patient = Patient::latest()->first();
+
+        return json_encode($patient);
     }
 }

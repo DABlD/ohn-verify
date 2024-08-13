@@ -41,3 +41,9 @@
     }
   }
 </style>
+
+<script type="text/javascript">
+  setTimeout(() => {
+    window.location.href = "{{ url('/') }}";
+  }, 5000);
+</script>

@@ -23,6 +23,10 @@ Route::get('/success', function () {
     return view('success');
 });
 
+Route::get('/success2', function () {
+    return view('success2');
+});
+
 Route::get('/error', function () {
     return view('error');
 });
@@ -31,7 +35,7 @@ Route::get('/biometrics', function () {
     return view('biometrics');
 });
 
-Route::post("webhook", "PatientController@webhook")->name('webhook');
+// Route::post("webhook", "PatientController@webhook")->name('webhook');
 
 // Route::get('/', function(){
 //    return redirect()->route('login');

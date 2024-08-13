@@ -182,7 +182,7 @@
 					},
 				});
 
-				// checkNeedFP();
+				checkNeedFP();
 			}, 10000);
 		}
 		checkNeedFP();

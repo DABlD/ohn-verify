@@ -15,9 +15,12 @@ class CreatePatientsTable extends Migration
     {
         Schema::create('patients', function (Blueprint $table) {
             $table->id();
-            
+
             $table->text('fingerprint')->nullable();
             $table->text('data')->nullable();
+
+            $table->text('idImageUrl')->nullable();
+            $table->text('selfieImageUrl')->nullable();
 
             $table->timestamps();
         });

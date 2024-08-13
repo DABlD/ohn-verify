@@ -9,5 +9,7 @@ class Patient extends Model
     protected $fillable = [
         "data",
         "fingerprint",
+        "selfieImageUrl",
+        "idImageUrl",
     ];
 }

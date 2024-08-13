@@ -19,7 +19,7 @@ class PatientController extends Controller
         $patient->placeOfIssue = $req->placeOfIssue;
         $patient->yearOfBirth = $req->yearOfBirth;
         $patient->nationality = $req->nationality;
-        $patient->data = json_encode($req->all());
+        $patient->data = json_encode($req['result']);
 
         if($patient->save()){
             return response()->json([

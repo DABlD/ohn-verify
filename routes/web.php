@@ -19,11 +19,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/success', function () {
+    return view('success');
+});
+
 Route::get('/biometrics', function () {
     return view('biometrics');
 });
 
-Route::get("webhook", "PatientController@webhook")->name('webhook');
+Route::post("webhook", "PatientController@webhook")->name('webhook');
 
 // Route::get('/', function(){
 //    return redirect()->route('login');

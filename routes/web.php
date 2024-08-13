@@ -19,12 +19,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/success2', function () {
+Route::get('/success', function () {
     return view('success');
 });
 
-Route::get('/success', function () {
+Route::get('/success2', function () {
     return view('success2');
+});
+
+Route::get('/success3', function () {
+    return view('success3');
 });
 
 Route::get('/error', function () {

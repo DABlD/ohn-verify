@@ -37,7 +37,7 @@ class PatientController extends Controller
     }
 
     function checkNeedFP(Request $req){
-        $patient = Patient::latest()->first();
+        $patient = Patient::whereNull('fingerprint')->first();
 
         return json_encode($patient);
     }

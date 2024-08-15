@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 use App\Models\Patient;
 
@@ -15,8 +16,16 @@ class PatientController extends Controller
 
         $patient->code = $temp->code;
         $patient->data = json_encode($temp->data->fieldsExtracted);
-        $patient->selfieImageUrl = json_encode($temp->data->selfieImageUrl);
-        $patient->idImageUrl = json_encode($temp->data->idImageUrl);
+        $patient->selfieImageUrl = 'uploads/' . $temp->code . '/' . 'selfie.jpg';
+        $patient->idImageUrl = 'uploads/' . $temp->code . '/' . 'id.jpg';
+        // $patient->selfieImageUrl = json_encode($temp->data->selfieImageUrl);
+        // $patient->idImageUrl = json_encode($temp->data->idImageUrl);
+
+        $imageContent = file_get_contents($temp->data->selfieImageUrl);
+        Storage::disk('public')->put($patient->selfieImageUrl, $imageContent);
+
+        $imageContent = file_get_contents($temp->data->idImageUrl);
+        Storage::disk('public')->put($patient->idImageUrl, $imageContent);
 
         if($patient->save()){
             return response()->json([

@@ -22,10 +22,10 @@ class PatientController extends Controller
         // $patient->idImageUrl = json_encode($temp->data->idImageUrl);
 
         $imageContent = file_get_contents($temp->data->selfieImageUrl);
-        Storage::put($patient->selfieImageUrl, $imageContent);
+        Storage::disk('public')->put($patient->selfieImageUrl, $imageContent);
 
         $imageContent = file_get_contents($temp->data->idImageUrl);
-        Storage::put($patient->idImageUrl, $imageContent);
+        Storage::disk('public')->put($patient->idImageUrl, $imageContent);
 
         if($patient->save()){
             return response()->json([

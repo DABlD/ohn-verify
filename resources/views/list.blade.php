@@ -153,7 +153,7 @@
                         code: code
                     },
                     success: result => {
-                        result = JSON.parse(result);
+                        result = result;
 
                         console.log(result);
                     }

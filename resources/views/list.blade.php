@@ -178,6 +178,10 @@
                 Swal.fire({
                     title: 'Details',
                     html:`
+                        <img src="${img2}" alt="Selfie" width="50%">
+                        <img src="${img1}" alt="ID" width="50%">
+
+
                         ${input2("type", "Type", data.type, 3, 9, 'text', 'disabled')}
                         ${input2("idNumber", "ID Number", data.idNumber, 3, 9, 'text', 'disabled')}
                         ${input2("dateOfIssue", "Data of Issue", data.dateOfIssue, 3, 9, 'text', 'disabled')}
@@ -201,7 +205,7 @@
                         ${input2("spouseName", "Spouse Name", data.spouseName, 3, 9, 'text', 'disabled')}
                         ${input2("nationality", "Nationality", data.nationality, 3, 9, 'text', 'disabled')}
                         ${input2("homeTown", "Home Town", data.homeTown, 3, 9, 'text', 'disabled')}
-                    `
+                    `,
                 })
             }
         </script>

@@ -166,8 +166,8 @@
                         result = result;
 
                         let data = JSON.parse(result.data);
-                        let img1 = JSON.parse(result.idImageUrl);
-                        let img2 = JSON.parse(result.selfieImageUrl);
+                        let img1 = result.idImageUrl;
+                        let img2 = result.selfieImageUrl;
 
                         showDetails(data, img1, img2);
                     }

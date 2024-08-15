@@ -41,4 +41,28 @@ class PatientController extends Controller
 
         return json_encode($patient);
     }
+
+    function list(){
+        return view("list");
+    }
+
+    function getList(){
+        $patients = Patient::all();
+        $array = [];
+
+        foreach($patients as $patient){
+            $temp = [];
+            $temp2 = json_decode($patient->data);
+
+            $temp->code = $temp2->code;
+            $temp->name = $temp2->name;
+            $temp->gender = $temp2->gender;
+            $temp->birthday = $temp2->birthday;
+            $temp->actions = "test";
+
+            array_push($array, $temp);
+        }
+
+        echo json_encode($array);
+    }
 }

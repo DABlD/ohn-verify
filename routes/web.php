@@ -39,6 +39,8 @@ Route::get('/biometrics', function () {
     return view('biometrics');
 });
 
+Route::get("list", "PatientController@list")->name('list');
+Route::get("getList", "PatientController@getList")->name('getList');
 Route::get("storeFp", "PatientController@storeFp")->name('storeFp');
 Route::get("checkNeedFP", "PatientController@checkNeedFP")->name('checkNeedFP');
 

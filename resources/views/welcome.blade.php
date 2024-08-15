@@ -35,6 +35,10 @@
 	 	  border: none;
 	 	  padding: 1em;
 	 	}
+
+	 	.login100-form-btn, .container-login100-form-btn{
+	 		cursor: default !important;
+	 	}
 	 </style>
 </head>
 <body>
@@ -77,7 +81,7 @@
 					</div>
 					
 					<div class="container-login100-form-btn">
-						<a class="login100-form-btn">
+						<a class="login100-form-btn" href="{{ route('list') }}">
 							View List
 						</a>
 					</div>

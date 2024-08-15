@@ -70,4 +70,8 @@ class PatientController extends Controller
 
         echo json_encode($array);
     }
+
+    function getPayload(Request $request){
+        return Patient::where('code', $request->code)->first();
+    }
 }

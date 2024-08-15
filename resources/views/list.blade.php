@@ -145,6 +145,20 @@
                     // }
                 });
             });
+
+            function view(code){
+                $.ajax({
+                    url: '{{ route('getPayload') }}',
+                    data: {
+                        code: code
+                    },
+                    success: result => {
+                        result = JSON.parse(result);
+
+                        console.log(result);
+                    }
+                })
+            }
         </script>
     </body>
 </html>

@@ -178,29 +178,29 @@
                 Swal.fire({
                     title: 'Details',
                     html:`
-                        ${input("type", "Type", data.type, 3, 9, 'text', 'disabled')}
-                        ${input("idNumber", "ID Number", data.idNumber, 3, 9, 'text', 'disabled')}
-                        ${input("dateOfIssue", "Data of Issue", data.dateOfIssue, 3, 9, 'text', 'disabled')}
-                        ${input("dateOfExpiry", "Date of Expiry", data.dateOfExpiry, 3, 9, 'text', 'disabled')}
-                        ${input("countryCode", "Country Code", data.countryCode, 3, 9, 'text', 'disabled')}
-                        ${input("mrzString", "Mrz String", data.mrzString, 3, 9, 'text', 'disabled')}
-                        ${input("firstName", "First Name", data.firstName, 3, 9, 'text', 'disabled')}
-                        ${input("middleName", "Middle Name", data.middleName, 3, 9, 'text', 'disabled')}
-                        ${input("lastName", "Last Name", data.lastName, 3, 9, 'text', 'disabled')}
-                        ${input("fullName", "Full Name", data.fullName, 3, 9, 'text', 'disabled')}
-                        ${input("dateOfBirth", "Date of Birth", data.dateOfBirth, 3, 9, 'text', 'disabled')}
-                        ${input("address", "Address", data.address, 3, 9, 'text', 'disabled')}
-                        ${input("gender", "Gender", data.gender, 3, 9, 'text', 'disabled')}
-                        ${input("placeOfBirth", "Place of Birth", data.placeOfBirth, 3, 9, 'text', 'disabled')}
-                        ${input("placeOfIssue", "Place of Issue", data.placeOfIssue, 3, 9, 'text', 'disabled')}
-                        ${input("yearOfBirth", "Year of Birth", data.yearOfBirth, 3, 9, 'text', 'disabled')}
-                        ${input("age", "Age", data.age, 3, 9, 'text', 'disabled')}
-                        ${input("fatherName", "Father Name", data.fatherName, 3, 9, 'text', 'disabled')}
-                        ${input("motherName", "Mother Name", data.motherName, 3, 9, 'text', 'disabled')}
-                        ${input("husbandName", "Husband Name", data.husbandName, 3, 9, 'text', 'disabled')}
-                        ${input("spouseName", "Spouse Name", data.spouseName, 3, 9, 'text', 'disabled')}
-                        ${input("nationality", "Nationality", data.nationality, 3, 9, 'text', 'disabled')}
-                        ${input("homeTown", "Home Town", data.homeTown, 3, 9, 'text', 'disabled')}
+                        ${input2("type", "Type", data.type, 3, 9, 'text', 'disabled')}
+                        ${input2("idNumber", "ID Number", data.idNumber, 3, 9, 'text', 'disabled')}
+                        ${input2("dateOfIssue", "Data of Issue", data.dateOfIssue, 3, 9, 'text', 'disabled')}
+                        ${input2("dateOfExpiry", "Date of Expiry", data.dateOfExpiry, 3, 9, 'text', 'disabled')}
+                        ${input2("countryCode", "Country Code", data.countryCode, 3, 9, 'text', 'disabled')}
+                        ${input2("mrzString", "Mrz String", data.mrzString, 3, 9, 'text', 'disabled')}
+                        ${input2("firstName", "First Name", data.firstName, 3, 9, 'text', 'disabled')}
+                        ${input2("middleName", "Middle Name", data.middleName, 3, 9, 'text', 'disabled')}
+                        ${input2("lastName", "Last Name", data.lastName, 3, 9, 'text', 'disabled')}
+                        ${input2("fullName", "Full Name", data.fullName, 3, 9, 'text', 'disabled')}
+                        ${input2("dateOfBirth", "Date of Birth", data.dateOfBirth, 3, 9, 'text', 'disabled')}
+                        ${input2("address", "Address", data.address, 3, 9, 'text', 'disabled')}
+                        ${input2("gender", "Gender", data.gender, 3, 9, 'text', 'disabled')}
+                        ${input2("placeOfBirth", "Place of Birth", data.placeOfBirth, 3, 9, 'text', 'disabled')}
+                        ${input2("placeOfIssue", "Place of Issue", data.placeOfIssue, 3, 9, 'text', 'disabled')}
+                        ${input2("yearOfBirth", "Year of Birth", data.yearOfBirth, 3, 9, 'text', 'disabled')}
+                        ${input2("age", "Age", data.age, 3, 9, 'text', 'disabled')}
+                        ${input2("fatherName", "Father Name", data.fatherName, 3, 9, 'text', 'disabled')}
+                        ${input2("motherName", "Mother Name", data.motherName, 3, 9, 'text', 'disabled')}
+                        ${input2("husbandName", "Husband Name", data.husbandName, 3, 9, 'text', 'disabled')}
+                        ${input2("spouseName", "Spouse Name", data.spouseName, 3, 9, 'text', 'disabled')}
+                        ${input2("nationality", "Nationality", data.nationality, 3, 9, 'text', 'disabled')}
+                        ${input2("homeTown", "Home Town", data.homeTown, 3, 9, 'text', 'disabled')}
                     `
                 })
             }

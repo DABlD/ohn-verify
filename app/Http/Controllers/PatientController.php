@@ -60,7 +60,7 @@ class PatientController extends Controller
             $temp['gender'] = $temp2['gender'];
             $temp['birthday'] = $temp2['dateOfBirth'];
             $temp['actions'] = "
-                <a class='btn btn-success' data-toggle='tooltip' title='View' onClick='view("$patient->code")'>
+                <a class='btn btn-success' data-toggle='tooltip' title='View' onClick='view(`$patient->code`)'>
                     <i class='fas fa-search'></i>
                 </a>
             ";

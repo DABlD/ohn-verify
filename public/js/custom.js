@@ -59,6 +59,19 @@ function input(name, placeholder, value, c1, c2, type = "text", autocomplete="")
     `;
 };
 
+function input2(name, placeholder="-", value, c1, c2, type = "text", autocomplete=""){
+    return `
+        <div class="row iRow">
+            <div class="col-md-${c1} iLabel">
+                ${placeholder}
+            </div>
+            <div class="col-md-${c2} iInput">
+                <input type="${type}" name="${name}" placeholder="" class="form-control" value="${value ?? ""}" ${autocomplete}>
+            </div>
+        </div>
+    `;
+};
+
 function reload(){
 	$('#table').DataTable().ajax.reload();
 };

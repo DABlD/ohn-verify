@@ -52,7 +52,7 @@ class PatientController extends Controller
 
         foreach($patients as $patient){
             $temp = [];
-            $temp2 = json_decode($patient->data);
+            $temp2 = (Array)json_decode($patient->data);
 
             $temp['code'] = $patient->code;
             $temp['name'] = $temp2['name'];

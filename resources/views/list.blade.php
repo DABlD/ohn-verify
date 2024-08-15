@@ -93,6 +93,7 @@
                                                     <th>Name</th>
                                                     <th>Gender</th>
                                                     <th>Birthday</th>
+                                                    <th>Created At</th>
                                                     <th>Actions</th>
                                                 </tr>
                                             </thead>
@@ -137,9 +138,18 @@
                         {data: 'name'},
                         {data: 'gender'},
                         {data: 'birthday'},
+                        {data: 'created_at'},
                         {data: 'actions'},
                     ],
                     pageLength: 25,
+                    columnDefs: [
+                        {
+                            targets: [5],
+                            render: date => {
+                                return moment(date).format("MMM DD, YYYY H:m:s");
+                            }
+                        }
+                    ],
                     // drawCallback: function(){
                     //  init();
                     // }
@@ -155,7 +165,11 @@
                     success: result => {
                         result = result;
 
-                        console.log(result);
+                        let data = JSON.parse(result.data);
+                        let img1 = JSON.parse(result.idImageUrl);
+                        let img2 = JSON.parse(result.selfieImageUrl);
+
+                        console.log(data, img1, img2);
                     }
                 })
             }

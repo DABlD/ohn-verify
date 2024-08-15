@@ -23,6 +23,10 @@
             .main-header, .content-wrapper{
                 margin-left: 0px !important;
             }
+
+            #table td, #table th{
+                text-align: center;
+            }
         </style>
     </head>
 

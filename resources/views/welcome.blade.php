@@ -190,7 +190,7 @@
 				});
 
 				checkNeedFP();
-			}, 10000);
+			}, 20000);
 		}
 		checkNeedFP();
 	</script>

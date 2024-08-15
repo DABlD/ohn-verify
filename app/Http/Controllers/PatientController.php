@@ -54,10 +54,10 @@ class PatientController extends Controller
             $temp = [];
             $temp2 = json_decode($patient->data);
 
-            $temp->code = $temp2->code;
-            $temp->name = $temp2->name;
-            $temp->gender = $temp2->gender;
-            $temp->birthday = $temp2->birthday;
+            $temp->code = $temp2['code'];
+            $temp->name = $temp2['name'];
+            $temp->gender = $temp2['gender'];
+            $temp->birthday = $temp2['birthday'];
             $temp->actions = "test";
 
             array_push($array, $temp);

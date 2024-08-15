@@ -59,11 +59,11 @@ class PatientController extends Controller
             $temp['name'] = $temp2['fullName'];
             $temp['gender'] = $temp2['gender'];
             $temp['birthday'] = $temp2['dateOfBirth'];
-            $temp['actions'] = `
+            $temp['actions'] = "
                 <a class='btn btn-success' data-toggle='tooltip' title='View' onClick='view("$patient->code")'>
                     <i class='fas fa-search'></i>
                 </a>
-            `;
+            ";
 
             array_push($array, $temp);
         }

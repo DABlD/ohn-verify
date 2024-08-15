@@ -164,8 +164,8 @@
 							Swal.fire({
 								title: "Details",
 								html: `
-									<img src="${img1}" alt="Selfie" width="50%">
-									<img src="${img2}" alt="ID" width="50%">
+									<img src="storage/${img1}" alt="Selfie" width="50%">
+									<img src="storage/${img2}" alt="ID" width="50%">
 									<div id="verifying">
 										${string}
 									</div>

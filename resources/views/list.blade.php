@@ -178,8 +178,8 @@
                 Swal.fire({
                     title: 'Details',
                     html:`
-                        <img src="${img2}" alt="Selfie" width="50%">
-                        <img src="${img1}" alt="ID" width="50%">
+                        <img src="storage/${img2}" alt="Selfie" width="50%">
+                        <img src="storage/${img1}" alt="ID" width="50%">
 
 
                         ${input2("type", "Type", data.type, 3, 9, 'text', 'disabled')}

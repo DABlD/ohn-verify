@@ -39,6 +39,8 @@ Route::get('/biometrics', function () {
     return view('biometrics');
 });
 
+Route::get("testUpload", "PatientController@testUpload")->name('testUpload');
+
 Route::get("list", "PatientController@list")->name('list');
 Route::get("getList", "PatientController@getList")->name('getList');
 Route::get("getPayload", "PatientController@getPayload")->name('getPayload');

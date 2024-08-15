@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use Storage;
 
 use App\Models\Patient;
 
@@ -22,10 +22,10 @@ class PatientController extends Controller
         // $patient->idImageUrl = json_encode($temp->data->idImageUrl);
 
         $imageContent = file_get_contents($temp->data->selfieImageUrl);
-        Storage::disk('public')->put($patient->selfieImageUrl, $imageContent);
+        Storage::put($patient->selfieImageUrl, $imageContent);
 
         $imageContent = file_get_contents($temp->data->idImageUrl);
-        Storage::disk('public')->put($patient->idImageUrl, $imageContent);
+        Storage::put($patient->idImageUrl, $imageContent);
 
         if($patient->save()){
             return response()->json([
@@ -37,6 +37,11 @@ class PatientController extends Controller
                 'message' => "Error"
             ]);
         }
+    }
+
+    function testUpload(Request $req){
+        $imageContent = file_get_contents("https://4.img-dpreview.com/files/p/E~TS590x0~articles/3925134721/0266554465.jpeg");
+        Storage::disk('public')->put("uploads/" . base64_encode(random_bytes(10)) . '.jpg', $imageContent);
     }
 
     function storeFp(Request $req){

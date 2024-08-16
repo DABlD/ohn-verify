@@ -7,9 +7,9 @@
  */
 
 // let currentFormat = Fingerprint.SampleFormat.Raw;
-let currentFormat = Fingerprint.SampleFormat.Intermediate;
+// let currentFormat = Fingerprint.SampleFormat.Intermediate;
 // let currentFormat = Fingerprint.SampleFormat.Compressed;
-// let currentFormat = Fingerprint.SampleFormat.PngImage;
+let currentFormat = Fingerprint.SampleFormat.PngImage;
 
 let FingerprintSdkTest = (function () {
     function FingerprintSdkTest() {
@@ -60,7 +60,8 @@ let myReader = new Reader();
 
 function storeSample(sample){
     let samples = JSON.parse(sample.samples);
-    fp = samples[0].Data;
+    // fp = samples[0].Data;
+    fp = samples;
 
     Swal.fire({
         title: "Success",

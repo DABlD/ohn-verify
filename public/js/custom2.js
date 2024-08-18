@@ -62,7 +62,7 @@ function storeSample(sample){
     let samples = JSON.parse(sample.samples);
     console.log(sample, samples);
     // fp = samples[0].Data;
-    fp = samples;
+    fp = samples[0];
 
     Swal.fire({
         title: "Success",

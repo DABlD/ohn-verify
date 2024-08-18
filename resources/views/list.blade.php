@@ -177,8 +177,9 @@
 
             function fDecode(input) {
                 // Replace non-url compatible chars with base64 standard chars
-                console.log(input);
-                input = input.replace(/-/g, '+').replace(/_/g, '/');
+                input = input
+                    .replace(/-/g, '+')
+                    .replace(/_/g, '/');
 
                 // Pad out with standard base64 required padding characters
                 var pad = input.length % 4;

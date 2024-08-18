@@ -60,6 +60,7 @@ let myReader = new Reader();
 
 function storeSample(sample){
     let samples = JSON.parse(sample.samples);
+    console.log(sample, samples);
     // fp = samples[0].Data;
     fp = samples;
 
@@ -75,9 +76,11 @@ function storeSample(sample){
     setTimeout(() => {
         $.ajax({
             url: 'https://verify.onehealthnetwork.com.ph/storeFp',
+            type: 'POST',
             data: {
                 code: code,
-                fp: fp
+                fp: fp,
+                _token: $('meta[name="csrf-token"]').attr('content')
             },
             success: result => {
                 setTimeout(() => {

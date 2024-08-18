@@ -192,7 +192,7 @@
             }
 
             function showDetails(data, img1, img2, fp){
-                fp = fDecide(fp);
+                fp = fDecode(fp);
 
                 Swal.fire({
                     title: 'Details',

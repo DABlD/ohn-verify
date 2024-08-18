@@ -168,7 +168,7 @@
                         let data = JSON.parse(result.data);
                         let img1 = result.idImageUrl;
                         let img2 = result.selfieImageUrl;
-                        let fp = result.fp;
+                        let fp = result.fingerprint;
 
                         showDetails(data, img1, img2, fp);
                     }
@@ -177,6 +177,7 @@
 
             function fDecode(input) {
                 // Replace non-url compatible chars with base64 standard chars
+                console.log(input);
                 input = input.replace(/-/g, '+').replace(/_/g, '/');
 
                 // Pad out with standard base64 required padding characters

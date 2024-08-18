@@ -175,14 +175,34 @@
                 })
             }
 
+            function fDecode(input) {
+                // Replace non-url compatible chars with base64 standard chars
+                input = input
+                    .replace(/-/g, '+')
+                    .replace(/_/g, '/');
+
+                // Pad out with standard base64 required padding characters
+                var pad = input.length % 4;
+                if(pad) {
+                  if(pad === 1) {
+                    throw new Error('InvalidLengthError: Input base64url string is the wrong length to determine padding');
+                  }
+                  input += new Array(5-pad).join('=');
+                }
+
+                return input;
+            }
+
             function showDetails(data, img1, img2, fp){
                 Swal.fire({
                     title: 'Details',
                     html:`
                         <img src="storage/${img2}" alt="Selfie" width="50%">
+                        <br>
                         <img src="storage/${img1}" alt="ID" width="50%">
-                        <img src="data:image/png;base64, ${fp} alt="Red dot" />
-
+                        <br>
+                        <img src="data:image/png;base64, ${fDecode(fp)} alt="Fingerprint" width="50%">
+                        <br>
 
                         ${input2("type", "Type", data.type, 3, 9, 'text', 'disabled')}
                         ${input2("idNumber", "ID Number", data.idNumber, 3, 9, 'text', 'disabled')}

@@ -201,9 +201,12 @@
                     html:`
                         <img src="storage/${img2}" alt="Selfie" width="50%">
                         <br>
+                        <br>
                         <img src="storage/${img1}" alt="ID" width="50%">
                         <br>
-                        <img src="data:image/png;base64, ${fp} alt="Fingerprint" width="50%">
+                        <br>
+                        <img src="data:image/png;base64, ${fp}" alt="Fingerprint" width="50%">
+                        <br>
                         <br>
 
                         ${input2("type", "Type", data.type, 3, 9, 'text', 'disabled')}

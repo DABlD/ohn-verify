@@ -192,6 +192,8 @@
             }
 
             function showDetails(data, img1, img2, fp){
+                fp = fDecide(fp);
+
                 Swal.fire({
                     title: 'Details',
                     html:`
@@ -199,7 +201,7 @@
                         <br>
                         <img src="storage/${img1}" alt="ID" width="50%">
                         <br>
-                        <img src="data:image/png;base64, ${fDecode(fp)} alt="Fingerprint" width="50%">
+                        <img src="data:image/png;base64, ${fp} alt="Fingerprint" width="50%">
                         <br>
 
                         ${input2("type", "Type", data.type, 3, 9, 'text', 'disabled')}

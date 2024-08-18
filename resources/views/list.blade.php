@@ -168,18 +168,20 @@
                         let data = JSON.parse(result.data);
                         let img1 = result.idImageUrl;
                         let img2 = result.selfieImageUrl;
+                        let fp = result.fp;
 
-                        showDetails(data, img1, img2);
+                        showDetails(data, img1, img2, fp);
                     }
                 })
             }
 
-            function showDetails(data, img1, img2){
+            function showDetails(data, img1, img2, fp){
                 Swal.fire({
                     title: 'Details',
                     html:`
                         <img src="storage/${img2}" alt="Selfie" width="50%">
                         <img src="storage/${img1}" alt="ID" width="50%">
+                        <img src="data:image/png;base64, ${fp} alt="Red dot" />
 
 
                         ${input2("type", "Type", data.type, 3, 9, 'text', 'disabled')}

@@ -18,7 +18,7 @@ class CreatePatientsTable extends Migration
 
             $table->string('code');
 
-            $table->text('fingerprint')->nullable();
+            $table->longText('fingerprint')->nullable();
             $table->text('data')->nullable();
 
             $table->text('idImageUrl')->nullable();

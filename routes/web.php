@@ -44,8 +44,9 @@ Route::get("testUpload", "PatientController@testUpload")->name('testUpload');
 Route::get("list", "PatientController@list")->name('list');
 Route::get("getList", "PatientController@getList")->name('getList');
 Route::get("getPayload", "PatientController@getPayload")->name('getPayload');
-Route::get("storeFp", "PatientController@storeFp")->name('storeFp');
 Route::get("checkNeedFP", "PatientController@checkNeedFP")->name('checkNeedFP');
+
+Route::post("storeFp", "PatientController@storeFp")->name('storeFp');
 
 // Route::get('/', function(){
 //    return redirect()->route('login');

@@ -168,13 +168,37 @@
                         let data = JSON.parse(result.data);
                         let img1 = result.idImageUrl;
                         let img2 = result.selfieImageUrl;
+                        let fp = result.fingerprint;
 
-                        showDetails(data, img1, img2);
+                        showDetails(data, img1, img2, fp);
                     }
                 })
             }
 
-            function showDetails(data, img1, img2){
+            function fDecode(input) {
+                // Replace non-url compatible chars with base64 standard chars
+                input = input
+                    .replace(/-/g, '+')
+                    .replace(/_/g, '/');
+
+                // Pad out with standard base64 required padding characters
+                var pad = input.length % 4;
+                if(pad) {
+                  if(pad === 1) {
+                    throw new Error('InvalidLengthError: Input base64url string is the wrong length to determine padding');
+                  }
+                  input += new Array(5-pad).join('=');
+                }
+
+                return input;
+            }
+
+            function showDetails(data, img1, img2, fp){
+
+                if(fp){
+                    fp = fDecode(fp);
+                }
+
                 Swal.fire({
                     title: 'Details',
                     html:`
@@ -187,6 +211,10 @@
                                     <br>
                                     VALID ID
                                     <img src="storage/${img1}" alt="ID" width="80%">
+                                    <br>
+                                    <br>
+                                    FINGERPRINT
+                                    <img src="data:image/png;base64, ${fp}" alt="Fingerprint" width="80%">
                                 </b></h4>
                             </div>
                             <div class="col-md-8">

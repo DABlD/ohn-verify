@@ -4,6 +4,7 @@
     <title>{{ "HDR | Verify"}}</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="csrf-token" content="{{ csrf_token() }}" />
 
 	<link rel="stylesheet" href="{{ asset('fonts/fontawesome.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/auth/animate.css') }}">
@@ -190,7 +191,7 @@
 				});
 
 				checkNeedFP();
-			}, 20000);
+			}, 15000);
 		}
 		checkNeedFP();
 	</script>

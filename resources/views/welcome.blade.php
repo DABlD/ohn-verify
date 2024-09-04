@@ -40,6 +40,13 @@
 	 	.login100-form-btn, .container-login100-form-btn{
 	 		cursor: default !important;
 	 	}
+
+	 	.tnc{
+	 		color: #5ed4fa;
+	 		font-size: 18px;
+	 		accent-color: #5ed4fa;
+	 		cursor: pointer;
+	 	}
 	 </style>
 </head>
 <body>
@@ -133,7 +140,37 @@
 				title: 'Scan the QR',
 				html: `
 					<img src="{{ asset('images/qr.png') }}">
+
+					<br>
+					<br>
+					<div style="text-align: justify;">
+						<span>
+							<input type="checkbox" class="tnc" checked>
+							I hereby voluntarily submit my information and that I authorise Sacred Heart Diagnostic Medical Center, Inc. In addition, I have read and understood the privacy policy as stated in the <a class="tnc" onclick="showTnc()">Terms and Conditions</a>
+						</span>
+					</div>
 				`,
+			});
+		}
+
+		function showTnc(){
+			Swal.fire({
+				title: 'Terms and Conditions',
+				html: `
+					<div style="text-align: justify;">
+						<span>
+							Users of this online application hereby give Sacred Heart Diagnostic and Medical Center, including its authorized data privacy officers and controllers, their individual permissions to store their personal information and any image in which they appear, for use by Malolos in relation to the latter's Public and Health Services.
+							<br><br>
+
+							In particular, Users understand that this consent may include storage of the Information to the City's third party database to enable the SHDMC access over the same for public service purposes in connection with the SHDMC responsibilities towards its constituents.
+							<br><br>
+
+							The User understand that this consent may be withdrawn any time upon request in accordance with Republic Act No. 10173, otherwise known as the Data Privacy Act.
+						</span>
+					</div>
+				`
+			}).then(() => {
+				verify();
 			});
 		}
 
